@@ -32,18 +32,18 @@ namespace Lab19
                 new Computer(){Num=6,Brend="Dell", Proc="Intel", FrequencyProc=2000, RAM=6000, VolumeDisk=307200, VolumeVideCard=1560, Price=75000, Quantity= 2},
                 new Computer(){Num=7,Brend="Dell", Proc="Intel", FrequencyProc=8000, RAM=24000, VolumeDisk=405600, VolumeVideCard=2200, Price=100000, Quantity= 3},
             };
-            Console.WriteLine("Название процессора");
-            string proc = Console.ReadLine();
-            List<Computer> listproc = listComputer.Where(x => x.Proc == proc).ToList();
-            Print(listproc);
+            //Console.WriteLine("Название процессора");
+            //string proc = Console.ReadLine();
+            //List<Computer> listproc = listComputer.Where(x => x.Proc == proc).ToList();
+            //Print(listproc);
 
-            Console.WriteLine("Объём оперативной памяти");
-            int ram = Convert.ToInt32(Console.ReadLine());
-            List<Computer> listram = listComputer.Where(x => x.RAM >= ram).ToList();
-            Print(listram);
+            //Console.WriteLine("Объём оперативной памяти");
+            //int ram = Convert.ToInt32(Console.ReadLine());
+            //List<Computer> listram = listComputer.Where(x => x.RAM >= ram).ToList();
+            //Print(listram);
 
-            List<Computer> listprice = listComputer.OrderBy(x => x.Price).ToList();
-            Print(listprice);
+            //List<Computer> listprice = listComputer.OrderBy(x => x.Price).ToList();
+            //Print(listprice);
 
             IEnumerable<IGrouping<string, Computer>> listproc2 = listComputer.GroupBy(x => x.Proc);
             foreach (IGrouping<string, Computer> p in listproc2)
@@ -54,6 +54,8 @@ namespace Lab19
                     Console.WriteLine($"{c.Num} {c.Brend} {c.Proc} {c.FrequencyProc} {c.RAM} {c.VolumeDisk} {c.VolumeVideCard} {c.Price} {c.Quantity}");
                 }
             };
+            Console.WriteLine();
+            Console.ReadKey();
 
             Computer computer = listComputer.OrderByDescending(x => x.Price).FirstOrDefault();
             Console.WriteLine($"{computer.Num} {computer.Brend} {computer.Proc} {computer.FrequencyProc} {computer.RAM} {computer.VolumeDisk} {computer.VolumeVideCard} {computer.Price} {computer.Quantity}");
@@ -74,7 +76,6 @@ namespace Lab19
                 Console.WriteLine("Нет");
             }
             Console.ReadKey();
-
         }
         static void Print(List<Computer> listComputer)
         {
